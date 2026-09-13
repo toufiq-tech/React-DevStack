@@ -1,7 +1,7 @@
 import Navbar from './Components/Navbar';
 import Banner from './Components/Banner';
 import Technologies from './Components/Technologies';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import type { Techtype } from './Techtype';
 
 const techFetch = async () : Promise<Techtype[]> => {
@@ -10,15 +10,17 @@ const techFetch = async () : Promise<Techtype[]> => {
   return data;
 }
 
-
 const App = () => {
   const techPromise = techFetch();
+  const [techno, setTechno] = useState<Techtype[]>([]);
   return (
     <div>
       <Navbar />
       <Banner />
       <Suspense>
-        <Technologies techPromise={techPromise} />
+        <Technologies techPromise={techPromise}
+        techno={techno}
+        setTechno={setTechno} />
       </Suspense>
     </div>
   );

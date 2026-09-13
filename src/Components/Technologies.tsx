@@ -100,7 +100,12 @@ const Technologies = ({ techPromise, techno, setTechno }: ITechProps) => {
             })}
           </div>
           <div className="col-span-4 border border-gray-300 p-4 rounded-lg w-full h-fit">
-            <h2 className="text-[24px] font-bold mb-4">Your Stack</h2>
+            <h2 className="text-[24px] font-bold mb-2">Your Stack</h2>
+            {techno.length > 0 && (
+              <p className="text-gray-500 text-[16px] mb-4">
+                {techno.length} {techno.length === 1 ? "Technology" : "Technologies"} Selected
+              </p>
+            )}
 
             {techno.length === 0 ? (
               <>
@@ -130,47 +135,45 @@ const Technologies = ({ techPromise, techno, setTechno }: ITechProps) => {
                       </div>
                     </div>
                     <button
-                    onClick={() => {
-                    setTechno(techno.filter((item) => item.id !== tech.id));
-                    toast.info(`${tech.name} removed from your stack!`, {
-                    position: "top-center",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: false,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                    transition: Bounce,
-                    });
-                    }}
-                    className="text-red-500 font-bold hover:text-red-700"
+                      onClick={() => {
+                        setTechno(techno.filter((item) => item.id !== tech.id));
+                        toast.info(`${tech.name} removed from your stack!`, {
+                          position: "top-center",
+                          autoClose: 5000,
+                          hideProgressBar: false,
+                          closeOnClick: false,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "light",
+                          transition: Bounce,
+                        });
+                      }}
+                      className="text-red-500 font-bold hover:text-red-700"
                     >
-                    ✕
+                      ✕
                     </button>
-
-                </div>
+                  </div>
                 ))}
                 <button
-                 onClick={() => {
-                 setTechno([]);
-                 toast.warn("All technologies removed from your stack!", {
-                 position: "top-center",
-                 autoClose: 5000,
-                 hideProgressBar: false,
-                 closeOnClick: false,
-                 pauseOnHover: true,
-                 draggable: true,
-                 progress: undefined,
-                  theme: "light",
-                  transition: Bounce,
-                  });
+                  onClick={() => {
+                    setTechno([]);
+                    toast.warn("All technologies removed from your stack!", {
+                      position: "top-center",
+                      autoClose: 5000,
+                      hideProgressBar: false,
+                      closeOnClick: false,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                      theme: "light",
+                      transition: Bounce,
+                    });
                   }}
-                 className="bg-white text-red-500 py-2 rounded-lg w-full border border-red-500 hover:bg-red-50"
+                  className="bg-white text-red-500 py-2 rounded-lg w-full border border-red-500 hover:bg-red-50"
                 >
-               Remove All
-               </button>
-
+                  Remove All
+                </button>
               </div>
             )}
           </div>

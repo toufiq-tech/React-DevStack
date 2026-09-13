@@ -84,7 +84,6 @@ const Technologies = ({ techPromise, techno, setTechno }: ITechProps) => {
                     <p className="text-[11px]">⭐️{tech.rating}</p>
                   </div>
 
-                  {/* Button */}
                   <button
                     onClick={() => !alreadyAdded && handleAddToStack(tech)}
                     disabled={alreadyAdded}
@@ -131,21 +130,47 @@ const Technologies = ({ techPromise, techno, setTechno }: ITechProps) => {
                       </div>
                     </div>
                     <button
-                      onClick={() =>
-                        setTechno(techno.filter((item) => item.id !== tech.id))
-                      }
-                      className="text-red-500 font-bold hover:text-red-700"
+                    onClick={() => {
+                    setTechno(techno.filter((item) => item.id !== tech.id));
+                    toast.info(`${tech.name} removed from your stack!`, {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                    });
+                    }}
+                    className="text-red-500 font-bold hover:text-red-700"
                     >
-                      ✕
+                    ✕
                     </button>
-                  </div>
+
+                </div>
                 ))}
                 <button
-                  onClick={() => setTechno([])}
-                  className="bg-white text-red-500 py-2 rounded-lg w-full border border-red-500 hover:bg-red-50"
+                 onClick={() => {
+                 setTechno([]);
+                 toast.warn("All technologies removed from your stack!", {
+                 position: "top-center",
+                 autoClose: 5000,
+                 hideProgressBar: false,
+                 closeOnClick: false,
+                 pauseOnHover: true,
+                 draggable: true,
+                 progress: undefined,
+                  theme: "light",
+                  transition: Bounce,
+                  });
+                  }}
+                 className="bg-white text-red-500 py-2 rounded-lg w-full border border-red-500 hover:bg-red-50"
                 >
-                  Remove All
-                </button>
+               Remove All
+               </button>
+
               </div>
             )}
           </div>

@@ -6,4 +6,5 @@ export interface Techtype {
     icon: string;
     rating: number;
     difficulty: string;
+    badge: string;
 }

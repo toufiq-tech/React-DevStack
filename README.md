@@ -41,11 +41,12 @@ Answer - Every item in a .map() list needs a unique key prop for
 Q. What is conditional rendering? Show one place you used it (example: the empty stack message).
 Answer - Conditional rendering in React means showing different UI elements depending on certain conditions. Instead of always displaying the same thing, React checks a condition (like whether data exists, or a user is logged in) and decides what to render.
 Simple Example :
-{stack.length === 0 ? (
-  <p>Your stack is empty. Add some technologies!</p>
-) : (
-  <StackList items={stack} />
-)}
+
+   {stack.length === 0 ? (
+    <p>Your stack is empty. Add some technologies!</p>
+   ) : (
+   <StackList items={stack} />
+   )}
 
 Q. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
 Answer - I pass data from a parent component to a child component using props.But A child cannot directly change the parent’s data. Instead, the parent passes down a callback function as a prop.

@@ -32,7 +32,7 @@ const Footer = () => {
                 <p className="text-[12px] text-gray-500">Terms of Service</p>
               </div>
             </div>
-            <hr className="border-t border-gray-400 my-5" />
+            <hr className="border-t border-gray-300 my-5" />
             <div className="flex justify-between items-center">
                 <div>
                   <p className="text-[12px] text-gray-500">© 2026 DevStack. All rights reserved.</p>

@@ -12,7 +12,7 @@ const techFetch = async () : Promise<Techtype[]> => {
 }
 
 const App = () => {
-  const techPromise = techFetch();
+  const [techPromise] = useState(() => techFetch());
   const [techno, setTechno] = useState<Techtype[]>([]);
   return (
     <div>
